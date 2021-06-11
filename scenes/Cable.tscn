@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/cable.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Cable.gd" type="Script" id=2]
+
+[node name="cable" type="Node2D"]
+rotation = 1.5708
+script = ExtResource( 2 )
+
+[node name="cableSprite" type="Sprite" parent="."]
+scale = Vector2( 1, -1 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -25, 0 )

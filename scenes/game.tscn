@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/background.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Pin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=3]
+
+[node name="game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 0.00012207, 6.10352e-05 )
+z_index = -2
+texture = ExtResource( 1 )
+centered = false
+
+[node name="pin" parent="." instance=ExtResource( 2 )]
+position = Vector2( 150.481, 192.144 )
+
+[node name="pin2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 145.13, 306.902 )
+cable_color = Color( 0.101961, 1, 0, 1 )
+
+[node name="pin3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 142.157, 415.715 )
+cable_color = Color( 1, 0.984314, 0, 1 )
+
+[node name="pin4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 143.941, 527.5 )
+cable_color = Color( 0.968627, 0, 1, 1 )
+
+[node name="pin5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1120.17, 191.276 )
+scale = Vector2( -1, 1 )
+source = false
+
+[node name="pin6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1118.98, 313.17 )
+scale = Vector2( -1, 1 )
+source = false
+
+[node name="pin7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1123.74, 438.036 )
+scale = Vector2( -1, 1 )
+source = false
+
+[node name="pin8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1124.93, 545.66 )
+scale = Vector2( -1, 1 )
+source = false

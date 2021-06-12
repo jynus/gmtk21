@@ -1,14 +1,25 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/cable.png" type="Texture" id=1]
-[ext_resource path="res://scenes/Cable.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Cable.gd" type="Script" id=2]
 
-[node name="cable" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.0111, 0.505503 )
+
+[node name="cable" type="Area2D"]
 rotation = 1.5708
 script = ExtResource( 2 )
 
 [node name="cableSprite" type="Sprite" parent="."]
 scale = Vector2( 1, -1 )
+z_index = 10
 texture = ExtResource( 1 )
 centered = false
 offset = Vector2( -25, 0 )
+
+[node name="cableCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 2.98023e-08, -0.492188 )
+shape = SubResource( 1 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_cable_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_cable_mouse_exited"]

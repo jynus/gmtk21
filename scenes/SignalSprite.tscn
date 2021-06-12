@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprites/signal_0.png" type="Texture" id=1]
+
+[node name="signal_0" type="Sprite"]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 12.5, 0.749176 )
+texture = ExtResource( 1 )

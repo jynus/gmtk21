@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Gmtk 21 1"
+config/name="Gmtk 21"
 run/main_scene="res://scenes/game.tscn"
 config/icon="res://icon.png"
 

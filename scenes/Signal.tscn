@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/signal_0.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Signal.gd" type="Script" id=3]
+
+[node name="Signal" type="Node2D"]
+position = Vector2( -96.1757, 0 )
+script = ExtResource( 3 )
+
+[node name="Sprite1" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 25, 0 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 50, 0 )
+texture = ExtResource( 2 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 75, 0 )
+texture = ExtResource( 2 )

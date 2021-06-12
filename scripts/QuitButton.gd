@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_quitButton_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://scenes/LevelSelection.tscn")

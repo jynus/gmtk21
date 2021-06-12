@@ -13,9 +13,11 @@ var connected_to = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if color == null:
+		color = Color(1.0, 0.0, 0.0, 1.0)
 	modulate = color
-	connect("clicked", get_parent().get_parent(), "on_cable_clicked")
-	connect("released", get_parent().get_parent(), "on_cable_released")
+	connect("clicked", get_node("/root/game"), "on_cable_clicked")
+	connect("released", get_node("/root/game"), "on_cable_released")
 func _process(delta):
 	if hover:
 		if Input.is_action_just_pressed("ui_click"):
@@ -37,9 +39,12 @@ func connect_cable(from, to):
 	connected_to = to
 	to.add_connection(self)
 	removable = true
+	#from.connect("output_pin_changed", to, "check_input_change")
+	#print("connected with a signal", from.name, " and ", to.name)
 
 func disconnect_cable():
 	if connected_from != null:
+		connected_from.disconnect("output_pin_changed", connected_to, "check_input_change")
 		connected_from.remove_connection(self)
 		connected_from = null
 	if connected_to != null:

@@ -16,7 +16,7 @@ func _ready():
 
 func move_cable(pos):
 	$cableEndSprite.position = pos - Vector2(5, 0)
-	var cable_vector = pos - source_pin.position
+	var cable_vector = pos - source_pin.global_position
 	if is_instance_valid(current_cable):
 		current_cable.rotation = cable_vector.angle() + PI/2
 		current_cable.scale.y = cable_vector.length()
@@ -39,7 +39,7 @@ func check_win_state():
 	win_game()
 
 func add_new_connection(from, to, cable):
-	move_cable(to.position)
+	move_cable(to.global_position)
 	dragging = false
 	cable.connect_cable(from, to)
 	current_cable = null
@@ -65,11 +65,12 @@ func on_pin_clicked(node):
 		start_new_cable(node)
 
 func on_pin_released(node):
+	
 	if node == source_pin:
 		dragging = false
 		remove_cable(current_cable)
 		current_cable = null
-	else:
+	elif source_pin != null:
 		add_new_connection(source_pin, node, current_cable)
 	source_pin = null
 

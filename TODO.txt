@@ -5,6 +5,7 @@ TODO
 - create more levels
 - fix the credits
 
+- artwork
 - export windows and html5
 - upload to itch
 - create the description

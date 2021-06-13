@@ -11,7 +11,7 @@ var song2 = preload("res://music/song_two.ogg")
 
 func _ready():
 	autoplay = false
-	volume_db = -5
+	volume_db = -10
 	stream = song1
 
 

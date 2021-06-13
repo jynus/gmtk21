@@ -18,6 +18,8 @@ var hover = false
 var connections = []
 var green_led_sprite = preload("res://sprites/green_led.png")
 var red_led_sprite = preload("res://sprites/red_led.png")
+var green_led_sound = preload("res://sfx/correct_led.wav")
+var red_led_sound = preload("res://sfx/wrong_led.wav")
 
 func signal_to_color(value):
 	match value:
@@ -26,11 +28,11 @@ func signal_to_color(value):
 		"0010": return Color(1, 1, 0, 1)
 		"0011": return Color(0.5, 1, 0.5, 1)
 		"0100": return Color(1, 1, 0, 1)
-		"0101": return Color(1, 1, 0, 1)
-		"0110": return Color(1, 1, 0, 1)
+		"0101": return Color(1, 0.6, 0.1, 1)
+		"0110": return Color(0.7, 0.5, 0, 1)
 		"0111": return Color(1, 1, 0, 1)
 		"1000": return Color(0, 0, 0, 1)
-		"1001": return Color(1, 1, 0, 1)
+		"1001": return Color(0.7, 0, 0.3, 1)
 		"1010": return Color(1, 0, 1, 1)
 		"1011": return Color(0.7, 0.2, 0, 1)
 		"1100": return Color(0.5, 0.5, 1, 1)
@@ -50,7 +52,8 @@ func _ready():
 		$signal.scale.x = -1
 		$pinLabelAnchor.position.x = -200
 		$signal.position.x = -100
-		$pinLabelAnchor/pinLabel/ledSprite.visible = true
+		$pinLabelAnchor/pinLabel/ledSpriteAnimated.visible = true
+		$pinLabelAnchor/pinLabel/ledSpriteAnimated.animation = "red"
 	connect("clicked", get_node("/root/game"), "on_pin_clicked")
 	connect("released", get_node("/root/game"), "on_pin_released")
 	connect("hovering_on", get_node("/root/game"), "on_pin_enter_hovering")
@@ -83,9 +86,16 @@ func change_value(new_value):
 func set_correct(value):
 	correct = value
 	if correct:
-		$pinLabelAnchor/pinLabel/ledSprite.texture = green_led_sprite
+		$pinLabelAnchor/pinLabel/ledSpriteAnimated.animation = "green"
+		$ledAudio.stream = green_led_sound
 	else:
-		$pinLabelAnchor/pinLabel/ledSprite.texture = red_led_sprite
+		$pinSprite/particles.emitting = true
+		$pinSprite/particles/particleTimer.start()
+		$pinLabelAnchor/pinLabel/ledSpriteAnimated.animation = "red"
+		$ledAudio.stream = red_led_sound
+	$pinLabelAnchor/pinLabel/ledSpriteAnimated.frame = 0
+	$pinLabelAnchor/pinLabel/ledSpriteAnimated.play()
+	$ledAudio.play()
 
 func check_correct():
 	set_correct(!source and connections.size() == 1 and connections[0].connected_from.value == value)
@@ -118,3 +128,7 @@ func _on_pin_mouse_entered():
 func _on_pin_mouse_exited():
 	hover = false
 	emit_signal("hovering_off", self)
+
+
+func _on_particleTimer_timeout():
+	$pinSprite/particles.emitting = false

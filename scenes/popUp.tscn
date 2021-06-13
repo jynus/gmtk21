@@ -108,6 +108,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="popUpPanel/backButton" to="popUpPanel/backButton" method="_on_quitButton_pressed"]
 [connection signal="pressed" from="popUpPanel/nextButton" to="popUpPanel/nextButton" method="_on_nextButton_pressed"]
 [connection signal="pressed" from="popUpPanel/continueButton" to="popUpPanel/continueButton" method="_on_continueButton_pressed"]

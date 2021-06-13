@@ -9,6 +9,8 @@ var hovering_on = null
 var output_pins = []
 var won = false
 var lost = false
+var win_sound = preload("res://music/win2.ogg")
+var loss_sound = preload("res://music/loss.ogg")
 
 func _ready():
 	if GlobalVariables.music:
@@ -159,6 +161,14 @@ func lose_game():
 	lost = true
 	$popUpAnchor/popUpPanel/popUpLabel.text = "YOU LOSE"
 	$popUpAnchor/popUpPanel/nextButton.text = "retry"
+	$popUpAnchor/sfx.stream = loss_sound
+	$popUpAnchor/sfx.autoplay = false
+	$popUpAnchor/sfx.play()
+	var timer = Timer.new()
+	add_child(timer)
+	timer.connect("timeout", self, "sfx_end")
+	timer.wait_time = 5
+	timer.start()
 	disable_gameplay()
 
 func win_game():
@@ -168,8 +178,20 @@ func win_game():
 	GlobalVariables.won()
 	$popUpAnchor/popUpPanel/popUpLabel.text = "YOU WIN"
 	$popUpAnchor/popUpPanel/nextButton.text = "next level"
+	$popUpAnchor/sfx.stream = win_sound
+	$popUpAnchor/sfx.autoplay = false
+	$popUpAnchor/sfx.play()
+	var timer = Timer.new()
+	add_child(timer)
+	timer.connect("timeout", self, "sfx_end")
+	timer.wait_time = 5
+	timer.start()
 	disable_gameplay()
-	
+
+func sfx_end():
+	$popUpAnchor/sfx.stop()
+	$popUpAnchor/sfx.stream = null
+
 func _on_timer_timeout(node):
 	lose_game()
 

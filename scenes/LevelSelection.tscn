@@ -141,6 +141,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button9" type="Button" parent="."]
+margin_left = 484.325
+margin_top = 305.516
+margin_right = 601.325
+margin_bottom = 418.516
+theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="skipTutorials" type="CheckBox" parent="."]
 margin_left = 370.407
 margin_top = 622.335

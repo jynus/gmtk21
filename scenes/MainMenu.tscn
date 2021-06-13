@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://fonts/DIGITALDREAMFAT.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://sprites/background.png" type="Texture" id=2]
 [ext_resource path="res://themes/timerDigits.theme" type="Theme" id=3]
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://sprites/white_cable.png" type="Texture" id=5]
+[ext_resource path="res://sprites/turquoise_cable.png" type="Texture" id=6]
+[ext_resource path="res://sprites/green_cable.png" type="Texture" id=7]
+[ext_resource path="res://sprites/red_cable.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 56
@@ -27,6 +31,86 @@ script = ExtResource( 4 )
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 640, 360 )
 texture = ExtResource( 2 )
+
+[node name="turquoise_cable" type="Sprite" parent="background"]
+position = Vector2( 758.053, -252.583 )
+rotation = 0.785398
+texture = ExtResource( 6 )
+
+[node name="turquoise_cable2" type="Sprite" parent="background"]
+position = Vector2( 766.062, -26 )
+rotation = 0.785398
+texture = ExtResource( 6 )
+
+[node name="red_cable" type="Sprite" parent="background"]
+position = Vector2( 739.366, -427.147 )
+rotation = 0.785398
+texture = ExtResource( 8 )
+
+[node name="red_cable2" type="Sprite" parent="background"]
+position = Vector2( 764.728, -109.456 )
+rotation = 0.785398
+texture = ExtResource( 8 )
+
+[node name="green_cable" type="Sprite" parent="background"]
+position = Vector2( 750.044, -337 )
+rotation = 0.785398
+texture = ExtResource( 7 )
+
+[node name="green_cable2" type="Sprite" parent="background"]
+position = Vector2( 755.383, -172 )
+rotation = 0.785398
+texture = ExtResource( 7 )
+
+[node name="white_cable" type="Sprite" parent="background"]
+position = Vector2( 739.366, -515.546 )
+rotation = 0.785398
+texture = ExtResource( 5 )
+
+[node name="white_cable2" type="Sprite" parent="background"]
+position = Vector2( 739.366, -515.546 )
+rotation = 0.785398
+texture = ExtResource( 5 )
+
+[node name="turquoise_cable3" type="Sprite" parent="background"]
+position = Vector2( -763.664, -272.605 )
+rotation = -0.785398
+texture = ExtResource( 6 )
+
+[node name="turquoise_cable4" type="Sprite" parent="background"]
+position = Vector2( -755.654, -46.0226 )
+rotation = -0.785398
+texture = ExtResource( 6 )
+
+[node name="red_cable3" type="Sprite" parent="background"]
+position = Vector2( -782.351, -447.17 )
+rotation = -0.785398
+texture = ExtResource( 8 )
+
+[node name="red_cable4" type="Sprite" parent="background"]
+position = Vector2( -756.989, -129.478 )
+rotation = -0.785398
+texture = ExtResource( 8 )
+
+[node name="green_cable3" type="Sprite" parent="background"]
+position = Vector2( -771.672, -357.023 )
+rotation = -0.785398
+texture = ExtResource( 7 )
+
+[node name="green_cable4" type="Sprite" parent="background"]
+position = Vector2( -766.333, -192.023 )
+rotation = -0.785398
+texture = ExtResource( 7 )
+
+[node name="white_cable3" type="Sprite" parent="background"]
+position = Vector2( -782.351, -535.569 )
+rotation = -0.785398
+texture = ExtResource( 5 )
+
+[node name="white_cable4" type="Sprite" parent="background"]
+position = Vector2( -782.351, -535.569 )
+rotation = -0.785398
+texture = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 243.0

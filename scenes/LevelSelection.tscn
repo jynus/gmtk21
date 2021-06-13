@@ -30,10 +30,10 @@ position = Vector2( 640, 360 )
 texture = ExtResource( 2 )
 
 [node name="Button1" type="Button" parent="."]
-margin_left = 127.923
-margin_top = 123.977
-margin_right = 244.923
-margin_bottom = 236.977
+margin_left = 131.928
+margin_top = 192.054
+margin_right = 248.928
+margin_bottom = 305.054
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -44,10 +44,10 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="."]
-margin_left = 305.457
-margin_top = 123.977
-margin_right = 422.457
-margin_bottom = 236.977
+margin_left = 309.462
+margin_top = 192.054
+margin_right = 426.462
+margin_bottom = 305.054
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -58,10 +58,10 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="."]
-margin_left = 484.325
-margin_top = 123.977
-margin_right = 601.325
-margin_bottom = 236.977
+margin_left = 488.33
+margin_top = 192.054
+margin_right = 605.33
+margin_bottom = 305.054
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -72,10 +72,10 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="."]
-margin_left = 660.524
-margin_top = 123.977
-margin_right = 777.524
-margin_bottom = 236.977
+margin_left = 664.529
+margin_top = 192.054
+margin_right = 781.529
+margin_bottom = 305.054
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -86,10 +86,10 @@ __meta__ = {
 }
 
 [node name="Button5" type="Button" parent="."]
-margin_left = 835.524
-margin_top = 123.977
-margin_right = 952.524
-margin_bottom = 236.977
+margin_left = 839.529
+margin_top = 192.054
+margin_right = 956.529
+margin_bottom = 305.054
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -100,10 +100,10 @@ __meta__ = {
 }
 
 [node name="Button6" type="Button" parent="."]
-margin_left = 1013.06
-margin_top = 123.977
-margin_right = 1130.06
-margin_bottom = 236.977
+margin_left = 1017.06
+margin_top = 192.054
+margin_right = 1134.06
+margin_bottom = 305.054
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -114,10 +114,10 @@ __meta__ = {
 }
 
 [node name="Button7" type="Button" parent="."]
-margin_left = 127.923
-margin_top = 305.516
-margin_right = 244.923
-margin_bottom = 418.516
+margin_left = 309.462
+margin_top = 365.583
+margin_right = 426.462
+margin_bottom = 478.583
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -128,10 +128,10 @@ __meta__ = {
 }
 
 [node name="Button8" type="Button" parent="."]
-margin_left = 305.457
-margin_top = 305.516
-margin_right = 422.457
-margin_bottom = 418.516
+margin_left = 486.996
+margin_top = 365.583
+margin_right = 603.996
+margin_bottom = 478.583
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
@@ -142,15 +142,29 @@ __meta__ = {
 }
 
 [node name="Button9" type="Button" parent="."]
-margin_left = 484.325
-margin_top = 305.516
-margin_right = 601.325
-margin_bottom = 418.516
+margin_left = 665.864
+margin_top = 365.583
+margin_right = 782.864
+margin_bottom = 478.583
 theme = ExtResource( 3 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 1 )
 text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button10" type="Button" parent="."]
+margin_left = 842.063
+margin_top = 365.583
+margin_right = 959.063
+margin_bottom = 478.583
+theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 1 )
+text = "10"
 __meta__ = {
 "_edit_use_anchors_": false
 }

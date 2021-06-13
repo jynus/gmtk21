@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://sprites/background.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Pin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/popUp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Gate.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Timer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/cable_end.png" type="Texture" id=7]
+
+[node name="game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+z_index = -2
+texture = ExtResource( 2 )
+centered = false
+
+[node name="pin3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 421.751 )
+value = "1100"
+
+[node name="pin6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 312.776 )
+value = "1010"
+
+[node name="pin5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 194.897 )
+
+[node name="pin4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 547.191 )
+value = "1111"
+
+[node name="pin7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1082.44, 404.091 )
+scale = Vector2( -1, 1 )
+source = false
+value = "1100"
+
+[node name="pin10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1082.44, 313.578 )
+scale = Vector2( -1, 1 )
+source = false
+value = "0010"
+
+[node name="pin11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1086.44, 585.217 )
+scale = Vector2( -1, 1 )
+source = false
+value = "0011"
+
+[node name="pin12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1086.44, 494.704 )
+scale = Vector2( -1, 1 )
+source = false
+
+[node name="pin13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1080.44, 224.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "1110"
+
+[node name="pin14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1074.44, 135.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "0011"
+
+[node name="cableEndSprite" type="Sprite" parent="."]
+visible = false
+rotation = 1.5708
+z_index = 9
+texture = ExtResource( 7 )
+offset = Vector2( 0, -25 )
+
+[node name="timer" parent="." instance=ExtResource( 6 )]
+position = Vector2( 636.116, 31.1433 )
+timeout_seconds = 120
+
+[node name="popUpAnchor" parent="." instance=ExtResource( 4 )]
+
+[node name="not_gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 658.632, 248.394 )
+type = 5
+
+[node name="or_gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 661.411, 436 )
+
+[node name="and_gate" parent="." instance=ExtResource( 5 )]
+position = Vector2( 664.269, 624.143 )
+type = 1
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

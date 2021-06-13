@@ -1,0 +1,61 @@
+The objective of the game is to connect correctly the signals of the input pins (on the left) to the output pins (on the right).
+
+To create a connection, click and drag an input pin to create a new cable and release it on top of another pin.
+
+If the signal is correct, the led will go green.
+
+To complete a level all output leds must be green.
+
+-
+
+Some pins may be redundant and not be used to transfer the neeeded output signal.
+Not all input pins have to be connected to successfully complete a level- as long as all output pins are green, the level will be complete.
+
+Input pins can be used more than once to transfer the same signal to multiple output pins. To do so, drag and drop multiple times from the same input pin.
+
+However, connecting more than one input pin to the same output may not be a good idea...
+
+-
+
+Most levels are timed. If the timer on top reaches 0, you fail.
+
+The higher the level, the more things you will have to do under strict timing.
+
+Try connecting all the following signals to the corresponding outputs before the time runs out!
+
+-
+
+Some levels will not provide you with all the input pins needed to produce output signals. Thats when you can use our patented "signal converters" to transform the signal in something else.
+For example, the following is our Nanotechnology Opposite Transistencer™ (NOT). It will transform a signal into the inverse one: "high" signal will become "low" and "low" will become "high".
+
+
+
+
+
+
+
+Use the NOT converter to complete the following level.
+
+-
+
+The following is our Optimal Reberverator™ (OR). Unlike the NOT, it will take both input signals, compare both and return the highest:
+
+
+
+
+
+
+
+Use the OR converter to complete the following level.
+
+-
+
+The following is our Automatic numerical diminisher (AND). Like the OR, it will take both input signals, however in this case it will return the smallest of the two:
+
+
+
+
+
+
+
+Use the AND signal converter to complete the following level.

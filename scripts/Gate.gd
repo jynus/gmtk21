@@ -32,8 +32,11 @@ func _ready():
 		gate_types.NOT: sprite = not_sprite
 		gate_types.NAND: sprite = nand_sprite
 		gate_types.NOR: sprite = nor_sprite
+		
 	$gate_body/gateSprite.texture = sprite
 	$gate_body/gateLabel.text = gate_types.keys()[type]
+	if type == gate_types.OR:  #fix weird OR positioning
+		$gate_body/gateLabel.align = 0
 
 	# setup pins
 	for pin in get_children():

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/popUp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Timer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Pin.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Gate.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/cable_end.png" type="Texture" id=5]
 [ext_resource path="res://sprites/background.png" type="Texture" id=6]
 [ext_resource path="res://scripts/Game.gd" type="Script" id=7]
@@ -17,18 +16,63 @@ texture = ExtResource( 6 )
 centered = false
 
 [node name="pin3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 185.491, 278.885 )
-value = "0101"
-
-[node name="pin4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 185.491, 440.664 )
+position = Vector2( 185.491, 140.143 )
 value = "1010"
 
+[node name="pin4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 229.664 )
+value = "0101"
+
+[node name="pin5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 319.664 )
+value = "1111"
+
+[node name="pin6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 408.664 )
+
+[node name="pin8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 497.664 )
+value = "1100"
+
+[node name="pin9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 185.491, 587.664 )
+value = "0011"
+
 [node name="pin7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1081.44, 365.282 )
+position = Vector2( 1081.44, 140.143 )
 scale = Vector2( -1, 1 )
 source = false
 value = "1111"
+
+[node name="pin10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1081.44, 231.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "0011"
+
+[node name="pin11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1081.44, 321.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "1100"
+
+[node name="pin12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1081.44, 412.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "0011"
+
+[node name="pin13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1081.44, 502.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "1111"
+
+[node name="pin14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1081.44, 592.143 )
+scale = Vector2( -1, 1 )
+source = false
+value = "0101"
 
 [node name="cableEndSprite" type="Sprite" parent="."]
 visible = false
@@ -39,10 +83,7 @@ offset = Vector2( 0, -25 )
 
 [node name="timer" parent="." instance=ExtResource( 2 )]
 position = Vector2( 636.116, 31.1433 )
-timeout_seconds = 100
-
-[node name="or_gate" parent="." instance=ExtResource( 4 )]
-position = Vector2( 636.116, 362.448 )
+timeout_seconds = 30
 
 [node name="popUpAnchor" parent="." instance=ExtResource( 1 )]
 

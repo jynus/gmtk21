@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://sprites/background.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Roboto-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://themes/timerDigits.theme" type="Theme" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0, 0.984314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0941176, 0.627451, 0, 1 )
+
+[node name="game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 0.00012207, 6.10352e-05 )
+z_index = -2
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 246.945
+margin_top = 6.10352e-05
+margin_right = 1004.95
+margin_bottom = 141.0
+theme = ExtResource( 7 )
+text = "Level 5 Tutorial"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 266.0
+margin_top = 184.0
+margin_right = 1005.0
+margin_bottom = 576.0
+theme = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "We have at our disposition multiple Nanotechnology Opposite Transistors™. 
+
+By combining inputs and signal converters we can solve complex scenarios.
+
+Use the OR converters to complete the following level."
+text = "We have at our disposition multiple Nanotechnology Opposite Transistors™. 
+
+By combining inputs and signal converters we can solve complex scenarios.
+
+Use the OR converters to complete the following level."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 462.697
+margin_top = 620.995
+margin_right = 769.697
+margin_bottom = 700.995
+theme = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

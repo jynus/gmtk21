@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://fonts/DIGITALDREAMFAT.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/background.png" type="Texture" id=2]
+[ext_resource path="res://themes/timerDigits.theme" type="Theme" id=3]
+[ext_resource path="res://scripts/Options.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 0.792157, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 0.137255, 0.137255, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.47451, 0.435294, 0.435294, 1 )
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 640, 360 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 243.0
+margin_top = 23.0
+margin_right = 1004.0
+margin_bottom = 158.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "OPTIONS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" type="Button" parent="."]
+margin_left = 909.0
+margin_top = 617.0
+margin_right = 1237.0
+margin_bottom = 695.0
+theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Main MENU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullScreen" type="CheckBox" parent="."]
+margin_left = 309.005
+margin_top = 200.526
+margin_right = 799.005
+margin_bottom = 277.526
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0196078, 0, 0, 1 )
+pressed = true
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="CheckBox" parent="."]
+margin_left = 309.005
+margin_top = 277.526
+margin_right = 799.005
+margin_bottom = 354.526
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0.0196078, 0, 0, 1 )
+pressed = true
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
+[connection signal="toggled" from="FullScreen" to="." method="_on_FullScreen_toggled"]
+[connection signal="toggled" from="Music" to="." method="_on_Music_toggled"]

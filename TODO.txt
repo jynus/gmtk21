@@ -1,0 +1,12 @@
+TODO
+- add sfx
+- add graphical feedback
+- animate the main menu
+- create more levels
+- fix the credits
+
+- export windows and html5
+- upload to itch
+- create the description
+- take screenshots
+- a youtube trailer

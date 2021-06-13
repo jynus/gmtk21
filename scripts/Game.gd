@@ -7,8 +7,14 @@ var current_cable = null
 var hovering = false
 var hovering_on = null
 var output_pins = []
+var won = false
+var lost = false
 
 func _ready():
+	if GlobalVariables.music:
+		GlobalVariables.stop()
+		GlobalVariables.stream = GlobalVariables.song2
+		GlobalVariables.play()
 	# gather a list of output pins to later check for win state
 	for node in get_children():
 		if node.is_in_group("pins") && !node.source:
@@ -22,6 +28,8 @@ func move_cable(pos):
 		current_cable.scale.y = cable_vector.length()
 
 func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel") and !won and !lost:
+		pause_game()
 	if dragging:
 		if Input.is_action_just_released("ui_click") and !hovering:
 			dragging = false
@@ -31,14 +39,35 @@ func _process(delta):
 			move_cable(get_global_mouse_position())
 	check_win_state()
 
+func pause_game():
+	if GlobalVariables.music:
+		GlobalVariables.stop()
+	$popUpAnchor/popUpPanel/popUpLabel.text = "GAME PAUSED"
+	$popUpAnchor/popUpPanel/nextButton.text = "reset level"
+	$popUpAnchor/popUpPanel/backButton.text = "back"
+	$popUpAnchor/popUpPanel.self_modulate = Color(1,1,1,1)
+	$popUpAnchor/popUpPanel/continueButton.visible = true
+	disable_gameplay()
+	$popUpAnchor/popUpPanel/continueButton.connect("continue_game", self, "unpause_game")
+
+func unpause_game(node):
+	if GlobalVariables.music:
+		GlobalVariables.play()
+	$popUpAnchor/popUpPanel/continueButton.disconnect("continue_game", self, "unpause_game")
+	$popUpAnchor/popUpPanel.self_modulate = Color(1,1,1,0.68)
+	enable_gameplay()
+
 func check_win_state():
-	# if every output pin is correct, trigger win
-	for pin in output_pins:
-		if !pin.correct:
-			return
-	win_game()
+	if !won:
+		# if every output pin is correct, trigger win
+		for pin in output_pins:
+			if !pin.correct:
+				return
+		win_game()
 
 func add_new_connection(from, to, cable):
+	if cable == null:
+		return
 	move_cable(to.global_position)
 	dragging = false
 	cable.connect_cable(from, to)
@@ -91,21 +120,56 @@ func on_cable_released(node):
 	pass
 
 func disable_gameplay():
-	$popUpAnchor/popUpPanel.visible = true
-	$timer.stop()
+	if get_node_or_null("timer"):
+		$timer/countdownTimer.paused = true
 	dragging = false
 	source_pin = null
 	hovering = false
 	hovering_on = null
 	current_cable = null
+	$popUpAnchor/popUpPanel.visible = true
+	var timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = 0.5
+	timer.one_shot = true
+	timer.connect("timeout", self, "show_buttons")
+	timer.start()
+
+func enable_gameplay():
+	if get_node_or_null("timer"):
+		$timer/countdownTimer.paused = false
+	dragging = false
+	source_pin = null
+	hovering = false
+	hovering_on = null
+	current_cable = null
+	$popUpAnchor/popUpPanel.visible = false
+	$popUpAnchor/popUpPanel/nextButton.disabled = true
+	$popUpAnchor/popUpPanel/backButton.disabled = true
+	$popUpAnchor/popUpPanel/continueButton.disabled = true
+
+func show_buttons():
+	$popUpAnchor/popUpPanel/nextButton.disabled = false
+	$popUpAnchor/popUpPanel/backButton.disabled = false
+	$popUpAnchor/popUpPanel/continueButton.disabled = false
 
 func lose_game():
+	if GlobalVariables.music:
+		GlobalVariables.stop()
+	lost = true
 	$popUpAnchor/popUpPanel/popUpLabel.text = "YOU LOSE"
+	$popUpAnchor/popUpPanel/nextButton.text = "retry"
 	disable_gameplay()
 
 func win_game():
+	if GlobalVariables.music:
+		GlobalVariables.stop()
+	won = true
+	GlobalVariables.won()
 	$popUpAnchor/popUpPanel/popUpLabel.text = "YOU WIN"
+	$popUpAnchor/popUpPanel/nextButton.text = "next level"
 	disable_gameplay()
 	
 func _on_timer_timeout(node):
 	lose_game()
+
